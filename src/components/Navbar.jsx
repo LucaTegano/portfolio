@@ -39,7 +39,7 @@ export const Navbar = () => {
           href="#hero"
         >
           <span className="columns items-center  z-10">
-            <img src={Logo} alt="Logo" className="w-13 h-13" />
+            <img src={Logo} alt="Logo" className="w-12 h-12" />
             <span className="text-glow text-foreground"> Luca T. </span>
           </span>
         </a>

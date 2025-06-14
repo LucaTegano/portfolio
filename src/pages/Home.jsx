@@ -25,6 +25,7 @@ export const Home = () => {
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />
+        <Footer />
       </main>
     </div>
   );

@@ -1,11 +1,12 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import UniCodeImage from "../assets/projects/UniCode.png"; 
 
 const projects = [
   {
     id: 1,
     title: "Unicode",
     description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
+    image: UniCodeImage, // Use the imported image
     tags: ["Next.js","Typescript", "AWS", "Firebase"],
     demoUrl: "https://unicodemaster.netlify.app",
     githubUrl: "",

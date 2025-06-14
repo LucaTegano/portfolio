@@ -24,11 +24,11 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-2xl md:text-3xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3 font-bold leading-12">
-            A Software Engineer dedicated to build <br/>
+            A Software Engineer Dedicated to Build <br/>
             <div><FlipWords 
-            words={["secure","scalable","efficient","reliable"]}
+            words={["Secure","Scalable","Efficient","Reliable"]}
             className="text-8xl font-black"/></div>
-            software
+            Software
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">

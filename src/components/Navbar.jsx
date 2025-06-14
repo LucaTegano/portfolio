@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-
+import Logo from "../assets/logo.png"
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
@@ -38,9 +38,9 @@ export const Navbar = () => {
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Luca's </span>{" "}
-            Portfolio
+          <span className="columns items-center  z-10">
+            <img src={Logo} alt="Logo" className="w-13 h-13" />
+            <span className="text-glow text-foreground"> Luca T. </span>
           </span>
         </a>
 

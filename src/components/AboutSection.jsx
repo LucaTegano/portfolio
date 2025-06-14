@@ -1,6 +1,5 @@
-// No imports needed for this version, or add if other shared components are used.
-// import { Star } from "lucide-react"; // Example if you add other elements
 import ProfilePicture from '../assets/profile-picture.jpeg'
+
 export const AboutSection = () => {
   return (
     <section id="about" className="py-20 md:py-28 px-4 relative text-white">

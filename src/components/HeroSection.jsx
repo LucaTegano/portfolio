@@ -1,4 +1,5 @@
 import { ArrowDown } from "lucide-react";
+import { FlipWords } from "./ui/flip-words";
 
 export const HeroSection = () => {
   return (
@@ -22,10 +23,12 @@ export const HeroSection = () => {
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I create stellar web experiences with modern technologies.
-            Specializing in front-end development, I build interfaces that are
-            both beautiful and functional.
+          <p className="text-2xl md:text-3xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3 font-bold leading-12">
+            A Software Engineer dedicated to build <br/>
+            <div><FlipWords 
+            words={["secure","scalable","efficient","reliable"]}
+            className="text-8xl font-black"/></div>
+            software
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">

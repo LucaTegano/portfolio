@@ -1,34 +1,54 @@
-import { Briefcase, Code, User } from "lucide-react";
-
+// No imports needed for this version, or add if other shared components are used.
+// import { Star } from "lucide-react"; // Example if you add other elements
+import ProfilePicture from '../assets/profile-picture.jpeg'
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4 relative">
-      {" "}
+    <section id="about" className="py-20 md:py-28 px-4 relative text-white">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
-        </h2>
+        <div className="flex items-center mb-12 md:mb-16">
+          <div className="hidden sm:block space-y-2.5 mr-6">
+            <div className="h-[3px] w-16 bg-[#A076F9]"></div>
+            <div className="h-[3px] w-24 bg-[#A076F9]"></div>
+            <div className="h-[3px] w-12 bg-[#A076F9]"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#C8B6E2]">
+            About Me
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">
-              Passionate Web Developer & Tech Creator
-            </h3>
+        {/* Main content card with gradient border effect */}
+        <div className="relative p-[2px] bg-gradient-to-br from-[#A076F9] via-[#D57FFF] to-[#A076F9] rounded-2xl shadow-2xl shadow-[#A076F9]/20">
+          <div className="bg-[#1A1230] p-6 sm:p-8 md:p-12 rounded-[14px]">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              {/* Left: Image */}
+              <div className="flex-shrink-0">
+                {/* TODO: Replace src with your actual image path */}
+                <img
+                  src={ProfilePicture} // Placeholder - replace with your image e.g., /src/assets/images/luca.jpg
+                  alt="Luca - Software Engineer"
+                  className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-[#A076F9]/60 shadow-xl"
+                />
+              </div>
 
-            <p className="text-muted-foreground">
-              With over 5 years of experience in web development, I specialize
-              in creating responsive, accessible, and performant web
-              applications using modern technologies.
-            </p>
-
-            <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex
-              problems, and I'm constantly learning new technologies and
-              techniques to stay at the forefront of the ever-evolving web
-              landscape.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+              {/* Right: Text Content */}
+              <div className="text-left space-y-5 flex-1">
+                <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+                  Hello! I'm Luca, a passionate software engineer with a knack
+                  for crafting elegant and efficient solutions. My journey in
+                  tech started with a fascination for how websites came to life,
+                  and it has grown into a full-blown passion for building
+                  dynamic, user-centric applications.
+                </p>
+                <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+                  I thrive in collaborative environments and enjoy tackling
+                  complex challenges. When I'm not coding, you can find me
+                  exploring new technologies, contributing to open-source
+                  projects, or stargazing (hence the cosmic theme!).
+                </p>
+                <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+                  Let's build something amazing together!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
                 {" "}
                 Get In Touch
@@ -41,50 +61,6 @@ export const AboutSection = () => {
                 Download CV
               </a>
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Web Development</h4>
-                  <p className="text-muted-foreground">
-                    Creating responsive websites and web applications with
-                    modern frameworks.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
-                  <p className="text-muted-foreground">
-                    Designing intuitive user interfaces and seamless user
-                    experiences.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                </div>
-
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Project Management</h4>
-                  <p className="text-muted-foreground">
-                    Leading projects from conception to completion with agile
-                    methodologies.
-                  </p>
-                </div>
               </div>
             </div>
           </div>

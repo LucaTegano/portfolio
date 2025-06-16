@@ -1,6 +1,5 @@
 import { ArrowDown } from "lucide-react";
 import { FlipWords } from "./ui/flip-words";
-
 export const HeroSection = () => {
   return (
     <section

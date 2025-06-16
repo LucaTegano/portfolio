@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 
 export const FlipWords = ({
   words,
-  duration = 1400,
+  duration = 1300,
   className
 }) => {
   const [currentWord, setCurrentWord] = useState(words[0]);

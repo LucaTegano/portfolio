@@ -91,10 +91,10 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="https://www.linkedin.com/in/lucategano" target="_blank">
+                <a href="https://www.linkedin.com/in/lucategano" target="_blank" className="hover:text-primary transition-colors">
                   <Linkedin />
                 </a>
-                <a href="https://github.com/lucaTegano" target="_blank">
+                <a href="https://github.com/lucaTegano" target="_blank" className="hover:text-primary transition-colors">
                   <Github />
                 </a>
               </div>

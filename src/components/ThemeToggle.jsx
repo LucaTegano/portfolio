@@ -40,7 +40,7 @@ export const ThemeToggle = () => {
       onClick={toggleTheme}
       className={cn(
         "group rounded-full", // Added a little padding to the button itself
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" // Improved focus state for accessibility
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer" // Improved focus state for accessibility
       )}
       aria-label="Toggle theme"
     >

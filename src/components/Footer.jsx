@@ -18,7 +18,7 @@ export const Footer = () => {
             aria-label="LinkedIn Profile"
             className="hover:text-primary transition-colors"
           >
-            <Linkedin size={20} />
+            <Linkedin size={25} />
           </a>
           <a
             href="https://github.com/lucaTegano"
@@ -27,7 +27,7 @@ export const Footer = () => {
             aria-label="GitHub Profile"
             className="hover:text-primary transition-colors"
           >
-            <Github size={20} />
+            <Github size={25} />
           </a>
         </div>
 
@@ -37,10 +37,10 @@ export const Footer = () => {
         <div className="order-3 sm:absolute sm:right-0 sm:top-1/2 sm:-translate-y-1/2">
           <a
             href="#hero"
-            className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+            className="rounded-full text-primary transition-colors"
             aria-label="Scroll to top"
           >
-            <ArrowUp size={20} />
+            <ArrowUp size={25} className="hover:bg-hover rounded-full" />
           </a>
         </div>
       </div>

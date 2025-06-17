@@ -26,7 +26,7 @@ export const HeroSection = () => {
             A Software Engineer Dedicated to Build <br/>
             <div><FlipWords 
             words={["Secure","Scalable","Efficient","Reliable"]}
-            className="md:text-7xl lg:text-8xl font-black"/></div>
+            className="text-6xl lg:text-8xl font-black"/></div>
             Software
           </p>
 

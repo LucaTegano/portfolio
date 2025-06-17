@@ -32,7 +32,7 @@ export const AboutSection = () => {
               {/* Right: Text Content */}
               <div className="text-left space-y-5 flex-1">
                 <p className="text-base sm:text-lg  leading-relaxed">
-                  Hello! I'm Luca, a passionate software engineer who is pursuing a Bachelor in Computer Science. My journey in
+                  Hello! I'm Luca, a passionate software engineer who is pursuing a Bachelor's in Computer Science. My journey in
                   tech started with a fascination for how websites came to life,
                   and it has grown into a full-blown passion for building
                   dynamic, user-centric applications.

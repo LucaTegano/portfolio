@@ -1,11 +1,11 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import UniCodeImage from "../assets/projects/UniCode.png"; 
-
+import OpenYardImage from "../assets/projects/OpenYard.png"; 
 const projects = [
   {
     id: 1,
     title: "Unicode",
-    description: "A beautiful landing page app using React and Tailwind.",
+    description: "WebApp to help students practice programming problems aligned with university exam formats, featuring in-app code execution.",
     image: UniCodeImage, // Use the imported image
     tags: ["Next.js","Typescript", "AWS", "Firebase"],
     demoUrl: "https://unicodemaster.netlify.app",
@@ -15,28 +15,28 @@ const projects = [
     id: 2,
     title: "SpaceCal",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
+      "Social media app tailored for university students",
+    image: "",
     tags: ["React Native", "TypeScript", "Node.js","AWS"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: "",
+    githubUrl: "",
   },
   {
     id: 3,
     title: "OpenYard",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
+      "The social media app's website to attract users and businesses (I made the business section)",
+    image: OpenYardImage,
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    demoUrl: "#",
-    githubUrl: "#",
+    demoUrl: "https://www.openyard.it/",
+    githubUrl: "https://github.com/LucaTegano/open-yard-web/",
   },
 ];
 
 export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-8xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           {" "}
           Featured <span className="text-primary"> Projects </span>
@@ -53,14 +53,21 @@ export const ProjectsSection = () => {
               key={key}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+              {/* Container for the image: fixed height, white background, and centers content */}
+              <div className="h-40 w-full overflow-hidden bg-white flex items-center justify-center">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    // Use max dimensions to prevent upscaling, object-contain for aspect ratio
+                    className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  // Placeholder for projects without an image
+                  <span className="text-xs text-muted-foreground">Image not available</span>
+                )}
               </div>
-
+ 
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
@@ -76,13 +83,13 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    <a
+                   {project.demoUrl && <a
                       href={project.demoUrl}
                       target="_blank"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <ExternalLink size={20} />
-                    </a>
+                    </a>}
 
                     {project.githubUrl && <a
                       href={project.githubUrl}

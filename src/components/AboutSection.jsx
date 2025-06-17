@@ -32,8 +32,7 @@ export const AboutSection = () => {
               {/* Right: Text Content */}
               <div className="text-left space-y-5 flex-1">
                 <p className="text-base sm:text-lg  leading-relaxed">
-                  Hello! I'm Luca, a passionate software engineer with a knack
-                  for crafting elegant and efficient solutions. My journey in
+                  Hello! I'm Luca, a passionate software engineer who is pursuing a Bachelor in Computer Science. My journey in
                   tech started with a fascination for how websites came to life,
                   and it has grown into a full-blown passion for building
                   dynamic, user-centric applications.
@@ -41,8 +40,7 @@ export const AboutSection = () => {
                 <p className="text-base sm:text-lg  leading-relaxed">
                   I thrive in collaborative environments and enjoy tackling
                   complex challenges. When I'm not coding, you can find me
-                  exploring new technologies, contributing to open-source
-                  projects, or stargazing (hence the cosmic theme!).
+                  exploring new technologies.
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
                   Let's build something amazing together!

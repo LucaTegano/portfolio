@@ -64,7 +64,7 @@ export const SkillsSection = () => {
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="group bg-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-2 border-transparent hover:border-primary/60 flex flex-col items-center justify-center text-center"
+              className="group bg-card p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-2 border-transparent hover:border-primary/60 flex flex-col items-center justify-center text-center"
             >
               <h3 className="font-semibold text-xl text-card-foreground group-hover:text-primary transition-colors duration-300">
                 {skill.name}

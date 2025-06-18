@@ -38,7 +38,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-[bounce_0.75s_infinite]">
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-[bounce_0.75s_infinite]">
         <span className="text-muted-foreground mb-2"> Scroll </span>
         <ArrowDown className="h-8 w-8 text-primary" />
       </div>

@@ -8,6 +8,8 @@ const navItems = [
   { icon: <i className="bi bi-gear-fill"></i>, href: "#skills", label: "Skills" },
   { icon: <i className="bi bi-briefcase-fill"></i>, href: "#projects", label: "Projects" },
   { icon: <i className="bi bi-envelope-fill"></i>, href: "#contact", label: "Contact" },
+  { icon: <i class="bi bi-github"></i>, href: "#contact", label: "Contact" },
+  { icon: <i class="bi bi-linkedin"></i>, href: "#contact", label: "Contact" },
 ];
 
 const FloatingNav = () => {
@@ -38,6 +40,7 @@ const FloatingNav = () => {
           </div>
           <span className="tooltip">Theme</span>
         </div>
+        {/*
         <a
           href="https://github.com/your-repo" // Replace with your GitHub repo
           target="_blank"
@@ -51,6 +54,7 @@ const FloatingNav = () => {
           </div>
           <span className="tooltip">GitHub</span>
         </a>
+        */}
       </div>
     </nav>
   );

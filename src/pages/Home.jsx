@@ -17,9 +17,7 @@ export const Home = () => {
       <FloatingNav />
       {/* Main Content */}
       <main>
-    
         <HeroSection />
-        
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />

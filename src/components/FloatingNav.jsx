@@ -10,6 +10,7 @@ const navItems = [
   { icon: <i className="bi bi-envelope-fill"></i>, href: "#contact", label: "Contact" },
   { icon: <i class="bi bi-github"></i>, href: "#contact", label: "Contact" },
   { icon: <i class="bi bi-linkedin"></i>, href: "#contact", label: "Contact" },
+  { icon:  <ThemeToggle />},
 ];
 
 const FloatingNav = () => {
@@ -27,19 +28,9 @@ const FloatingNav = () => {
             onMouseLeave={() => setActiveIndex(null)}
           >
             <div className="icon-container">{item.icon}</div>
-            <span className="tooltip">{item.label}</span>
+            {item.label && <span className="tooltip">{item.label}</span>}
           </a>
         ))}
-        <div
-          className={`nav-item ${activeIndex === navItems.length ? "active" : ""}`}
-          onMouseEnter={() => setActiveIndex(navItems.length)}
-          onMouseLeave={() => setActiveIndex(null)}
-        >
-          <div className="icon-container">
-            <ThemeToggle />
-          </div>
-          <span className="tooltip">Theme</span>
-        </div>
         {/*
         <a
           href="https://github.com/your-repo" // Replace with your GitHub repo

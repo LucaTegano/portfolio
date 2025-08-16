@@ -1,20 +1,20 @@
 .floating-nav {
   position: fixed;
-  bottom: 2rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.1rem);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
-  padding: 0.25rem;
+  /* padding: 0.01rem; */
   z-index: 50;
 }
 
 .nav-content {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 
 .nav-item {
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 1.4rem;
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -41,7 +41,7 @@
 }
 
 .nav-item:hover .icon-container {
-  transform: scale(1.1);
+  transform: scale(1.0);
 }
 
 .nav-item::before {
@@ -60,7 +60,7 @@
 
 .nav-item:hover::before {
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .tooltip {

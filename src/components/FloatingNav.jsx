@@ -3,13 +3,13 @@ import { ThemeToggle } from "./ThemeToggle";
 import "./FloatingNav.css";
 
 const navItems = [
-  { icon: <i className="bi bi-house-door"></i>, href: "#hero", label: "Home" },
-  { icon: <i className="bi bi-person"></i>, href: "#about", label: "About" },
-  { icon: <i className="bi bi-gear"></i>, href: "#skills", label: "Skills" },
-  { icon: <i className="bi bi-github"></i>, href: "https://github.com/LucaTegano/", label: "Contact" },
-  { icon: <i className="bi bi-linkedin"></i>, href: "https://www.linkedin.com/in/lucategano/", label: "Contact" },
-  { icon: <i className="bi bi-stars"></i>, href: "#projects", label: "Hide Stars" },
-  { icon: <i className="bi bi-lightbulb"></i>, href: "/showcase", label: "Showcase" },
+  { icon: <i className="bi bi-house-door text-foreground"></i>, href: "#hero", label: "Home" },
+  { icon: <i className="bi bi-person text-foreground"></i>, href: "#about", label: "About" },
+  { icon: <i className="bi bi-gear text-foreground"></i>, href: "#skills", label: "Skills" },
+  { icon: <i className="bi bi-github text-foreground"></i>, href: "https://github.com/LucaTegano/", label: "Contact" },
+  { icon: <i className="bi bi-linkedin text-foreground"></i>, href: "https://www.linkedin.com/in/lucategano/", label: "Contact" },
+  { icon: <i className="bi bi-stars text-foreground"></i>, href: "#projects", label: "Hide Stars" },
+  { icon: <i className="bi bi-lightbulb text-foreground"></i>, href: "/showcase", label: "Showcase" },
   { icon: <ThemeToggle /> },
 ];
 

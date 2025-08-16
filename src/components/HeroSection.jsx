@@ -1,7 +1,9 @@
 import { ArrowDown } from "lucide-react";
 import { FlipWords } from "./ui/flip-words";
+import SpaceButton from "./SpaceButton";
 export const HeroSection = () => {
   return (
+    <div className="z-0 bg-gradient-to-r from-card via-about to-about-primary">
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-4"
@@ -31,9 +33,7 @@ export const HeroSection = () => {
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              View My Work
-            </a>
+            <SpaceButton href="#projects"></SpaceButton>
           </div>
         </div>
       </div>
@@ -43,5 +43,6 @@ export const HeroSection = () => {
         <ArrowDown className="h-8 w-8 text-primary" />
       </div>
     </section>
+    </div>
   );
 };

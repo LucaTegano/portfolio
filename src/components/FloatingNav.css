@@ -1,0 +1,101 @@
+.floating-nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 0.25rem;
+  z-index: 50;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+}
+
+.nav-item:hover {
+  color: var(--hover-text-color);
+}
+
+.nav-item .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover .icon-container {
+  transform: scale(1.1);
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.nav-item:hover::before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--tooltip-bg-color);
+  color: var(--tooltip-text-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -0.5rem);
+}
+
+/* Define color variables for light and dark themes */
+:root {
+  --text-color: #333;
+  --hover-text-color: #000;
+  --tooltip-bg-color: #333;
+  --tooltip-text-color: #fff;
+}
+
+[data-theme="dark"] {
+  --text-color: #eee;
+  --hover-text-color: #fff;
+  --tooltip-bg-color: #eee;
+  --tooltip-text-color: #333;
+}

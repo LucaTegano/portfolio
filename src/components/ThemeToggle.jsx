@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+//import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -48,9 +48,11 @@ export const ThemeToggle = () => {
         )}
       >
         {isDarkMode ? (
-          <Sun className="h-6 w-6 text-white" />
+          //<Sun className="h-6 w-6 text-white" />
+          <i className="bi bi-brightness-high-fill text-foreground"></i>
         ) : (
-          <Moon className="h-6 w-6 text-black" />
+          //<Moon className="h-6 w-6 text-black" />
+          <i className="bi bi-moon text-foreground"></i>
         )}
       </div>
     </button>

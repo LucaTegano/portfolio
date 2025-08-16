@@ -1,51 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import "./FloatingNav.css";
 
 const navItems = [
-  { icon: <i className="bi bi-house-door-fill"></i>, href: "#hero", label: "Home" },
-  { icon: <i className="bi bi-person-fill"></i>, href: "#about", label: "About" },
-  { icon: <i className="bi bi-gear-fill"></i>, href: "#skills", label: "Skills" },
-  { icon: <i className="bi bi-briefcase-fill"></i>, href: "#projects", label: "Projects" },
-  { icon: <i className="bi bi-envelope-fill"></i>, href: "#contact", label: "Contact" },
-  { icon: <i class="bi bi-github"></i>, href: "#contact", label: "Contact" },
-  { icon: <i class="bi bi-linkedin"></i>, href: "#contact", label: "Contact" },
-  { icon:  <ThemeToggle />},
+  { icon: <i className="bi bi-house-door"></i>, href: "#hero", label: "Home" },
+  { icon: <i className="bi bi-person"></i>, href: "#about", label: "About" },
+  { icon: <i className="bi bi-gear"></i>, href: "#skills", label: "Skills" },
+  { icon: <i className="bi bi-github"></i>, href: "https://github.com/LucaTegano/", label: "Contact" },
+  { icon: <i className="bi bi-linkedin"></i>, href: "https://www.linkedin.com/in/lucategano/", label: "Contact" },
+  { icon: <i className="bi bi-stars"></i>, href: "#projects", label: "Hide Stars" },
+  { icon: <i className="bi bi-lightbulb"></i>, href: "/showcase", label: "Showcase" },
+  { icon: <ThemeToggle /> },
 ];
 
 const FloatingNav = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const navRef = useRef(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
+
+  const getMargin = (index) => {
+    if (hoveredIndex === null) return '0px';
+    const distance = Math.abs(index - hoveredIndex);
+    if (distance === 0) return '15px';
+    if (distance === 1) return '10px';
+    if (distance === 2) return '5px';
+    return '0px';
+  };
 
   return (
-    <nav className="floating-nav">
+    <nav
+      ref={navRef}
+      className={`floating-nav ${hoveredIndex !== null ? 'hovered' : ''}`}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="nav-content">
         {navItems.map((item, index) => (
           <a
             key={index}
             href={item.href}
-            className={`nav-item ${activeIndex === index ? "active" : ""}`}
-            onMouseEnter={() => setActiveIndex(index)}
-            onMouseLeave={() => setActiveIndex(null)}
+            className={`nav-item ${hoveredIndex === index ? "active" : ""}`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            style={{
+              marginLeft: index > 0 ? getMargin(index) : '0',
+              marginRight: index < navItems.length - 1 ? getMargin(index) : '0',
+            }}
           >
             <div className="icon-container">{item.icon}</div>
             {item.label && <span className="tooltip">{item.label}</span>}
           </a>
         ))}
-        {/*
-        <a
-          href="https://github.com/your-repo" // Replace with your GitHub repo
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`nav-item ${activeIndex === navItems.length + 1 ? "active" : ""}`}
-          onMouseEnter={() => setActiveIndex(navItems.length + 1)}
-          onMouseLeave={() => setActiveIndex(null)}
-        >
-          <div className="icon-container">
-            <i className="bi bi-star-fill"></i>
-          </div>
-          <span className="tooltip">GitHub</span>
-        </a>
-        */}
       </div>
     </nav>
   );

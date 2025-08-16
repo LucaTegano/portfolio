@@ -3,18 +3,33 @@
   bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(0.1rem);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
   border-radius: 9999px;
-  /* padding: 0.01rem; */
+  padding: 0.3rem;
   z-index: 50;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), 
+              inset 0 0 0 2px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-nav.hovered {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2), 
+              inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.8rem;
 }
 
 .nav-content {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.2rem;
+  transition: gap 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-nav.hovered .nav-content {
+  gap: 0.5rem;
 }
 
 .nav-item {
@@ -22,15 +37,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.4rem;
+  padding: 0.5rem;
   border-radius: 9999px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: var(--text-color);
 }
 
 .nav-item:hover {
   color: var(--hover-text-color);
+}
+
+.nav-item.active .icon-container {
+  transform: scale(1.2);
 }
 
 .nav-item .icon-container {
@@ -41,25 +60,6 @@
 }
 
 .nav-item:hover .icon-container {
-  transform: scale(1.0);
-}
-
-.nav-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.2);
-  opacity: 0;
-  transition: all 0.3s ease;
-  z-index: -1;
-}
-
-.nav-item:hover::before {
-  opacity: 1;
   transform: scale(1.1);
 }
 
@@ -70,32 +70,39 @@
   transform: translateX(-50%);
   background-color: var(--tooltip-bg-color);
   color: var(--tooltip-text-color);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .nav-item:hover .tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -0.5rem);
+  transform: translate(-50%, -0.75rem);
 }
 
 /* Define color variables for light and dark themes */
 :root {
-  --text-color: #333;
+  --text-color: #000;
   --hover-text-color: #000;
-  --tooltip-bg-color: #333;
-  --tooltip-text-color: #fff;
+  --tooltip-bg-color: rgba(255, 255, 255, 0.95);
+  --tooltip-text-color: #000;
 }
 
 [data-theme="dark"] {
-  --text-color: #eee;
+  --text-color: #fff;
   --hover-text-color: #fff;
-  --tooltip-bg-color: #eee;
-  --tooltip-text-color: #333;
+  --tooltip-bg-color: rgba(0, 0, 0, 0.85);
+  --tooltip-text-color: #fff;
+}
+
+[data-theme="dark"] .floating-nav {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

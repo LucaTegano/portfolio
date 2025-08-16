@@ -47,16 +47,11 @@ export const ThemeToggle = () => {
       {/* 2. Wrap the icons in a div that will be our colored background */}
       <div
         className={cn(
-          "rounded-3xl p-4 transition-colors duration-300",
-          // 3. Apply conditional background colors on group-hover
-          {
-            "group-hover:bg-gray-50/30": isDarkMode,   // Red background for Sun (dark mode)
-            "group-hover:bg-gray-500/30": !isDarkMode, // Green background for Moon (light mode)
-          }
+          "rounded-3xl p-4 transition-colors duration-300"
         )}
       >
         {isDarkMode ? (
-          <Sun className="h-6 w-6 text-yellow-300" />
+          <Sun className="h-6 w-6 text-white" />
         ) : (
           <Moon className="h-6 w-6 text-black" />
         )}

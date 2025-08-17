@@ -49,10 +49,10 @@ export const ThemeToggle = () => {
       >
         {isDarkMode ? (
           //<Sun className="h-6 w-6 text-white" />
-          <i className="bi bi-brightness-high-fill text-foreground"></i>
+          <i className="bi bi-brightness-high-fill text-foreground cursor-pointer"></i>
         ) : (
           //<Moon className="h-6 w-6 text-black" />
-          <i className="bi bi-moon text-foreground"></i>
+          <i className="bi bi-moon text-foreground cursor-pointer"></i>
         )}
       </div>
     </button>

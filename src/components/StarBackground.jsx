@@ -3,22 +3,24 @@ import { useEffect, useState } from "react";
 // id, size, x, y, opacity, animationDuration
 // id, size, x, y, delay, animationDuration
 
-export const StarBackground = () => {
+export const StarBackground = ({ show = true }) => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
 
   useEffect(() => {
-    generateStars();
-    generateMeteors();
-
-    const handleResize = () => {
+    if (show) {
       generateStars();
-    };
+      generateMeteors();
 
-    window.addEventListener("resize", handleResize);
+      const handleResize = () => {
+        generateStars();
+      };
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, [show]);
 
   const generateStars = () => {
     const numberOfStars = Math.floor(
@@ -58,6 +60,10 @@ export const StarBackground = () => {
 
     setMeteors(newMeteors);
   };
+
+  if (!show) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">

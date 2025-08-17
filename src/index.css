@@ -12,6 +12,9 @@
   --color-about: hsl(var(--about));
   --color-about-text: hsl(var(--about-text));
   --color-hover: hsl(var(--hover));
+  --color-star-mask: hsl(var(--star-mask));
+
+
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
@@ -97,7 +100,7 @@
     --border: 217 33% 20%;
 
     --hover: 202 10% 20%;
-    --star-mask: 250 47% 60%;
+    --star-mask: 274 100% 27%;
   }
 
   * {

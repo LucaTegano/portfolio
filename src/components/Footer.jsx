@@ -10,26 +10,6 @@ export const Footer = () => {
           &copy; {new Date().getFullYear()} Luca T. All rights reserved.
         </div>
 
-        <div className="flex space-x-4 order-2 sm:order-none"> 
-          <a
-            href="https://www.linkedin.com/in/lucategano"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            className="hover:text-primary transition-colors"
-          >
-            <Linkedin size={25} />
-          </a>
-          <a
-            href="https://github.com/lucaTegano"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            className="hover:text-primary transition-colors"
-          >
-            <Github size={25} />
-          </a>
-        </div>
 
         {/* Right: Scroll to Top */}
         {/* On sm screens, positioned absolutely. On mobile, it's a flex item. */}

@@ -1,9 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import "./FloatingNav.css";
 
 const FloatingNav = ({ toggleStars }) => {
   const [starsVisible, setStarsVisible] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setIsDarkMode(isDark);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    setIsDarkMode(document.documentElement.classList.contains("dark"));
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleToggleStars = () => {
     toggleStars();
@@ -24,7 +41,7 @@ const FloatingNav = ({ toggleStars }) => {
       active: starsVisible,
     },
     { icon: <i className="bi bi-lightbulb text-foreground"></i>, href: "/showcase", label: "Showcase" },
-    { icon: <ThemeToggle /> },
+    { icon: <ThemeToggle />, label: isDarkMode ? "Light mode" : "Dark mode" },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);

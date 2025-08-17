@@ -40,7 +40,8 @@
   padding: 0.5rem;
   border-radius: 9999px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* UPDATED: Ensured transform is part of the transition for the new effect */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: var(--text-color);
 }
 

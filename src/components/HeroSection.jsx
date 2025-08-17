@@ -1,6 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import { FlipWords } from "./ui/flip-words";
-import SpaceButton from "./SpaceButton";
+import SpaceButton from "../components/ui/SpaceButton";
 export const HeroSection = () => {
   return (
     <div className="z-0 bg-gradient-to-r from-card via-about to-about-primary">

@@ -2,11 +2,11 @@ import { useState } from "react";
 import { StarBackground } from "@/components/StarBackground";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import FloatingNav from "../components/FloatingNav";
+import SkillsCarousel from "../components/SkillsCarousel";
 
 export const Home = () => {
   const [showStars, setShowStars] = useState(true);
@@ -26,7 +26,7 @@ export const Home = () => {
       <main>
         <HeroSection />
         <AboutSection />
-        <SkillsSection />
+        <SkillsCarousel />
         <ProjectsSection />
         <ContactSection />
         <Footer />

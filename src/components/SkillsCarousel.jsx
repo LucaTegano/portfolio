@@ -168,7 +168,7 @@ const SkillsCarousel = () => {
   );
 
   return (
-    <div className="bg-background antialiased text-foreground font-sans">
+    <div className="bg-background antialiased text-foreground font-sans" id="skills">
       <div className="min-h-screen w-full flex items-center justify-center overflow-hidden">
         <div className="w-full max-w-6xl mx-auto px-4 py-8 relative">
           

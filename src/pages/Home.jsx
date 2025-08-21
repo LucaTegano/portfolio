@@ -29,7 +29,8 @@ export const Home = () => {
         <SkillsCarousel />
         <ProjectsSection />
         <ContactSection />
-        <Footer />
+      
+        {/* <Footer/> */}
       </main>
     </div>
   );

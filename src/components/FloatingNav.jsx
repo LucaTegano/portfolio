@@ -17,7 +17,9 @@ const FloatingNav = ({ toggleStars }) => {
       attributeFilter: ["class"],
     });
 
-    setIsDarkMode(document.documentElement.classList.contains("dark"));
+    setTimeout(() => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    }, 0);
 
     return () => observer.disconnect();
   }, []);
@@ -40,7 +42,7 @@ const FloatingNav = ({ toggleStars }) => {
       isButton: true,
       active: starsVisible,
     },
-    { icon: <i className="bi bi-lightbulb text-foreground"></i>, href: "/showcase", label: "Showcase" },
+    //{ icon: <i className="bi bi-lightbulb text-foreground"></i>, href: "/showcase", label: "Showcase" },
     { icon: <ThemeToggle />, label: isDarkMode ? "Light mode" : "Dark mode" },
   ];
 

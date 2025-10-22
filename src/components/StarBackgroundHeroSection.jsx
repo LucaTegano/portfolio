@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export const StarBackgroundHeroSection = () => {
   const [stars, setStars] = useState([]);
@@ -21,20 +21,9 @@ export const StarBackgroundHeroSection = () => {
   const METEOR_DURATION_MAX = 7;
   const METEOR_MAX_DELAY = 14; // used as negative delay to desync
 
-  useEffect(() => {
-    const regenerate = () => {
-      generateStars();
-      generateMeteors();
-    };
-    regenerate();
-    window.addEventListener("resize", regenerate);
-    return () => window.removeEventListener("resize", regenerate);
-  }, []);
-
   const rand = (min, max) => min + Math.random() * (max - min);
 
-  // Natural (poisson-ish) star placement: random with a minimum distance
-  const generateStars = () => {
+  const generateStars = useCallback(() => {
     const w = window.innerWidth;
     const h = window.innerHeight;
     const target = Math.max(25, Math.floor((w * h) / STARS_AREA_PER_STAR));
@@ -79,9 +68,9 @@ export const StarBackgroundHeroSection = () => {
         animationDuration: s.animationDuration,
       }))
     );
-  };
+  }, []);
 
-  const generateMeteors = () => {
+  const generateMeteors = useCallback(() => {
     const list = [];
     for (let i = 0; i < METEOR_COUNT; i++) {
       list.push({
@@ -94,7 +83,17 @@ export const StarBackgroundHeroSection = () => {
       });
     }
     setMeteors(list);
-  };
+  }, []);
+
+  useEffect(() => {
+    const regenerate = () => {
+      generateStars();
+      generateMeteors();
+    };
+    regenerate();
+    window.addEventListener("resize", regenerate);
+    return () => window.removeEventListener("resize", regenerate);
+  }, [generateStars, generateMeteors]);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-gradient-to-r from-card via-about to-about-primary">

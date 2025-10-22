@@ -10,15 +10,17 @@ export const ThemeToggle = () => {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const storedTheme = localStorage.getItem("theme");
 
-    if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      // Set light theme if no preference or storage is found
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-      document.documentElement.classList.remove("dark");
-    }
+    setTimeout(() => {
+      if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+        setIsDarkMode(true);
+        document.documentElement.classList.add("dark");
+      } else {
+        // Set light theme if no preference or storage is found
+        localStorage.setItem("theme", "light");
+        setIsDarkMode(false);
+        document.documentElement.classList.remove("dark");
+      }
+    }, 0);
   }, []);
 
   const toggleTheme = () => {

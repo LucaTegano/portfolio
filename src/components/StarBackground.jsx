@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 // id, size, x, y, opacity, animationDuration
 // id, size, x, y, delay, animationDuration
@@ -7,22 +7,7 @@ export const StarBackground = ({ show = true }) => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
 
-  useEffect(() => {
-    if (show) {
-      generateStars();
-      generateMeteors();
-
-      const handleResize = () => {
-        generateStars();
-      };
-
-      window.addEventListener("resize", handleResize);
-
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, [show]);
-
-  const generateStars = () => {
+  const generateStars = useCallback(() => {
     const numberOfStars = Math.floor(
       (window.innerWidth * window.innerHeight) / 12000
     );
@@ -41,9 +26,9 @@ export const StarBackground = ({ show = true }) => {
     }
 
     setStars(newStars);
-  };
+  }, []);
 
-  const generateMeteors = () => {
+  const generateMeteors = useCallback(() => {
     const numberOfMeteors = 12;
     const newMeteors = [];
 
@@ -59,7 +44,22 @@ export const StarBackground = ({ show = true }) => {
     }
 
     setMeteors(newMeteors);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (show) {
+      setTimeout(generateStars, 0);
+      setTimeout(generateMeteors, 0);
+
+      const handleResize = () => {
+        setTimeout(generateStars, 0);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, [show, generateStars, generateMeteors]);
 
   if (!show) {
     return null;

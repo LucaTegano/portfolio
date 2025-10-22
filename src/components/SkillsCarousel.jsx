@@ -60,6 +60,69 @@ const categoryTitles = {
   cloud: "Cloud"
 };
 
+const CarouselView = ({ extendedSkills }) => (
+  <div className="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_25%,white_75%,transparent)]">
+    <div 
+      className="
+        flex w-max
+        
+        /* 1. Apply the base, continuous animation */
+        animate-scroll
+        
+        /* 2. On hover, simply PAUSE the animation. It will stop in its tracks. */
+        group-hover:[animation-play-state:paused]
+      "
+    >
+      {/* This part remains the same */}
+      {extendedSkills.map((skill, index) => (
+        <div 
+          key={`${skill.name}-${index}`}
+          className="flex-shrink-0 w-52 h-36 flex items-center justify-center mx-6"
+          title={skill.name}
+        >
+          {skill.logo && (
+            <img
+              src={skill.logo}
+              alt={`${skill.name} logo`}
+              className={`max-w-full max-h-24 object-contain transition-transform duration-300 group-hover:scale-110 ${skill.invertOnDark ? 'dark:invert' : ''}`}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const GridView = ({ categorizedSkills }) => (
+  <div className="w-full space-y-12">
+    {Object.entries(categorizedSkills).map(([category, skillsInCategory]) => (
+      <div key={category}>
+        <h3 className="text-2xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-400">
+          {categoryTitles[category] || category}
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          {skillsInCategory.map((skill) => (
+            <div
+              key={skill.name}
+              className="bg-card p-4 rounded-xl flex flex-col items-center justify-center aspect-square transition-all duration-300 hover:bg-hover hover:scale-105"
+              title={skill.name}
+            >
+              {skill.logo && (
+                <img
+                  src={skill.logo}
+                  alt={`${skill.name} logo`}
+                  className={`h-16 w-16 sm:h-20 sm:w-20 object-contain ${skill.invertOnDark ? 'dark:invert' : ''}`}
+                />
+              )}
+               <p className="mt-4 text-sm font-medium text-muted-foreground text-center">{skill.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
 const SkillsCarousel = () => {
   const [viewMode, setViewMode] = useState('carousel');
   const [containerHeight, setContainerHeight] = useState('144px'); // Initial height for carousel (h-36)
@@ -104,69 +167,6 @@ const SkillsCarousel = () => {
     return () => clearTimeout(timer);
   }, [viewMode]);
 
-  const CarouselView = () => (
-<div className="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_25%,white_75%,transparent)]">
-  <div 
-    className="
-      flex w-max
-      
-      /* 1. Apply the base, continuous animation */
-      animate-scroll
-      
-      /* 2. On hover, simply PAUSE the animation. It will stop in its tracks. */
-      group-hover:[animation-play-state:paused]
-    "
-  >
-    {/* This part remains the same */}
-    {extendedSkills.map((skill, index) => (
-      <div 
-        key={`${skill.name}-${index}`}
-        className="flex-shrink-0 w-52 h-36 flex items-center justify-center mx-6"
-        title={skill.name}
-      >
-        {skill.logo && (
-          <img
-            src={skill.logo}
-            alt={`${skill.name} logo`}
-            className={`max-w-full max-h-24 object-contain transition-transform duration-300 group-hover:scale-110 ${skill.invertOnDark ? 'dark:invert' : ''}`}
-          />
-        )}
-      </div>
-    ))}
-  </div>
-</div>
-  );
-
-  const GridView = () => (
-    <div className="w-full space-y-12">
-      {Object.entries(categorizedSkills).map(([category, skillsInCategory]) => (
-        <div key={category}>
-          <h3 className="text-2xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary to-pink-400">
-            {categoryTitles[category] || category}
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {skillsInCategory.map((skill) => (
-              <div
-                key={skill.name}
-                className="bg-card p-4 rounded-xl flex flex-col items-center justify-center aspect-square transition-all duration-300 hover:bg-hover hover:scale-105"
-                title={skill.name}
-              >
-                {skill.logo && (
-                  <img
-                    src={skill.logo}
-                    alt={`${skill.name} logo`}
-                    className={`h-16 w-16 sm:h-20 sm:w-20 object-contain ${skill.invertOnDark ? 'dark:invert' : ''}`}
-                  />
-                )}
-                 <p className="mt-4 text-sm font-medium text-muted-foreground text-center">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-
   return (
     <div className="bg-background antialiased text-foreground font-sans" id="skills">
       <div className="min-h-screen w-full flex items-center justify-center overflow-hidden">
@@ -204,14 +204,14 @@ const SkillsCarousel = () => {
                 className={`absolute w-full transition-opacity duration-500 ease-in-out ${viewMode === 'carousel' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             >
                 <div ref={carouselRef}>
-                    <CarouselView />
+                    <CarouselView extendedSkills={extendedSkills} />
                 </div>
             </div>
             <div
                 className={`absolute w-full transition-opacity duration-500 ease-in-out ${viewMode === 'grid' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             >
                 <div ref={gridRef}>
-                    <GridView />
+                    <GridView categorizedSkills={categorizedSkills} />
                 </div>
             </div>
           </div>

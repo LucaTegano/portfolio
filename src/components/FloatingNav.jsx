@@ -17,7 +17,9 @@ const FloatingNav = ({ toggleStars }) => {
       attributeFilter: ["class"],
     });
 
-    setIsDarkMode(document.documentElement.classList.contains("dark"));
+    setTimeout(() => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    }, 0);
 
     return () => observer.disconnect();
   }, []);

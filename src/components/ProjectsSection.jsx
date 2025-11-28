@@ -1,23 +1,22 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import UniCodeImage from "../assets/projects/UniCode.png"; 
-import OpenYardImage from "../assets/projects/OpenYard.png"; 
+import OpenYardImage from "../assets/projects/OpenYard.png";
 const projects = [
   {
     id: 1,
     title: "Unicode",
-    description: "WebApp to help students practice programming problems aligned with university exam formats, featuring in-app code execution.",
-    image: UniCodeImage, // Use the imported image
-    tags: ["Next.js","Typescript", "AWS", "Firebase"],
+    description:
+      "WebApp to help students practice programming problems aligned with university exam formats, featuring in-app code execution.",
+    image: "/linkedin-banner.png", // Use the image from public folder
+    tags: ["Next.js", "Typescript", "AWS", "Firebase"],
     demoUrl: "https://unicodemaster.netlify.app",
     githubUrl: "",
   },
   {
     id: 2,
     title: "SpaceCal",
-    description:
-      "Social media app tailored for university students",
+    description: "Social media app tailored for university students",
     image: "",
-    tags: ["React Native", "TypeScript", "Node.js","AWS"],
+    tags: ["React Native", "TypeScript", "Node.js", "AWS"],
     demoUrl: "",
     githubUrl: "",
   },
@@ -64,10 +63,12 @@ export const ProjectsSection = () => {
                   />
                 ) : (
                   // Placeholder for projects without an image
-                  <span className="text-xs text-muted-foreground">Image not available</span>
+                  <span className="text-xs text-muted-foreground">
+                    Image not available
+                  </span>
                 )}
               </div>
- 
+
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
@@ -83,21 +84,25 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                   {project.demoUrl && <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>}
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
 
-                    {project.githubUrl && <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

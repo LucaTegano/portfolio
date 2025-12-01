@@ -8,7 +8,7 @@ const projects = [
       "WebApp to help students practice programming problems aligned with university exam formats, featuring in-app code execution.",
     image: "/linkedin-banner.png", // Use the image from public folder
     tags: ["Next.js", "Typescript", "AWS", "Firebase"],
-    demoUrl: "https://unicodemaster.netlify.app",
+    demoUrl: "https://unicodemaster.it",
     githubUrl: "",
   },
   {

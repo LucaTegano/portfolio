@@ -10,14 +10,14 @@
   border-radius: 9999px;
   padding: 0.3rem;
   z-index: 50;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), 
-              inset 0 0 0 2px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.05);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .floating-nav.hovered {
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2), 
-              inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.1);
   padding: 0.3rem 0.3rem;
 }
 
@@ -41,7 +41,8 @@
   border-radius: 9999px;
   cursor: pointer;
   /* UPDATED: Ensured transform is part of the transition for the new effect */
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   color: var(--text-color);
 }
 

@@ -7,22 +7,9 @@ const FloatingNav = ({ toggleStars }) => {
   const {
     starsVisible,
     isDarkMode,
-    hoveredIndex,
     navRef,
     handleToggleStars,
-    handleMouseEnter,
-    handleMouseMove,
-    handleNavMouseLeave,
   } = useFloatingNav(toggleStars);
-
-  const getMargin = (index) => {
-    if (hoveredIndex === null) return "3px";
-    const distance = Math.abs(index - hoveredIndex);
-    if (distance === 0) return "10px";
-    if (distance === 1) return "8px";
-    if (distance === 2) return "2px";
-    return "1px";
-  };
 
   const navItems = [
     {
@@ -64,23 +51,15 @@ const FloatingNav = ({ toggleStars }) => {
   return (
     <nav
       ref={navRef}
-      className={`floating-nav ${hoveredIndex !== null ? "hovered" : ""}`}
-      // Attach new event handlers to the main nav container
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleNavMouseLeave}
+      className="floating-nav"
     >
       <div className="nav-content">
         {navItems.map((item, index) => {
           const commonProps = {
             key: index,
-            className: `nav-item ${hoveredIndex === index ? "active" : ""} ${
+            className: `nav-item ${
               item.isButton && item.active ? "stars-active" : ""
             }`,
-            onMouseEnter: () => handleMouseEnter(index),
-            style: {
-              marginLeft: index > 0 ? getMargin(index) : "0",
-              marginRight: index < navItems.length - 1 ? getMargin(index) : "0",
-            },
           };
 
           if (item.isButton) {
